@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace API.Migrations
 {
     /// <inheritdoc />
-    public partial class Inicial : Migration
+    public partial class Inicia : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,8 @@ namespace API.Migrations
                     TarefaId = table.Column<string>(type: "TEXT", nullable: false),
                     Titulo = table.Column<string>(type: "TEXT", nullable: true),
                     CriadoEm = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Status = table.Column<string>(type: "TEXT", nullable: true)
+                    Status = table.Column<string>(type: "TEXT", nullable: true),
+                    Concluida = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,12 +30,12 @@ namespace API.Migrations
 
             migrationBuilder.InsertData(
                 table: "Tarefas",
-                columns: new[] { "TarefaId", "CriadoEm", "Status", "Titulo" },
+                columns: new[] { "TarefaId", "Concluida", "CriadoEm", "Status", "Titulo" },
                 values: new object[,]
                 {
-                    { "2f1b7dc1-3b9a-4e1a-a389-7f5d2f1c8f3e", new DateTime(2025, 11, 17, 9, 45, 51, 783, DateTimeKind.Local).AddTicks(4290), "Não iniciada", "Estudar Angular" },
-                    { "6a8b3e4d-5e4e-4f7e-bdc9-9181e456ad0e", new DateTime(2025, 11, 21, 9, 45, 51, 783, DateTimeKind.Local).AddTicks(4278), "Não iniciada", "Concluir relatório" },
-                    { "e5d4a7b9-1f9e-4c4a-ae3b-5b7c1a9d2e3f", new DateTime(2025, 11, 28, 9, 45, 51, 783, DateTimeKind.Local).AddTicks(4297), "Não iniciada", "Passeio no parque" }
+                    { "2f1b7dc1-3b9a-4e1a-a389-7f5d2f1c8f3e", false, new DateTime(2025, 11, 17, 10, 47, 13, 878, DateTimeKind.Local).AddTicks(5062), "Não iniciada", "Estudar Angular" },
+                    { "6a8b3e4d-5e4e-4f7e-bdc9-9181e456ad0e", false, new DateTime(2025, 11, 21, 10, 47, 13, 878, DateTimeKind.Local).AddTicks(5049), "Não iniciada", "Concluir relatório" },
+                    { "e5d4a7b9-1f9e-4c4a-ae3b-5b7c1a9d2e3f", false, new DateTime(2025, 11, 28, 10, 47, 13, 878, DateTimeKind.Local).AddTicks(5069), "Não iniciada", "Passeio no parque" }
                 });
         }
 

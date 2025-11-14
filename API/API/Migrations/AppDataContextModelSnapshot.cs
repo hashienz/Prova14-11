@@ -22,6 +22,9 @@ namespace API.Migrations
                     b.Property<string>("TarefaId")
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("Concluida")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("TEXT");
 
@@ -39,21 +42,24 @@ namespace API.Migrations
                         new
                         {
                             TarefaId = "6a8b3e4d-5e4e-4f7e-bdc9-9181e456ad0e",
-                            CriadoEm = new DateTime(2025, 11, 21, 9, 45, 51, 783, DateTimeKind.Local).AddTicks(4278),
+                            Concluida = false,
+                            CriadoEm = new DateTime(2025, 11, 21, 10, 47, 13, 878, DateTimeKind.Local).AddTicks(5049),
                             Status = "Não iniciada",
                             Titulo = "Concluir relatório"
                         },
                         new
                         {
                             TarefaId = "2f1b7dc1-3b9a-4e1a-a389-7f5d2f1c8f3e",
-                            CriadoEm = new DateTime(2025, 11, 17, 9, 45, 51, 783, DateTimeKind.Local).AddTicks(4290),
+                            Concluida = false,
+                            CriadoEm = new DateTime(2025, 11, 17, 10, 47, 13, 878, DateTimeKind.Local).AddTicks(5062),
                             Status = "Não iniciada",
                             Titulo = "Estudar Angular"
                         },
                         new
                         {
                             TarefaId = "e5d4a7b9-1f9e-4c4a-ae3b-5b7c1a9d2e3f",
-                            CriadoEm = new DateTime(2025, 11, 28, 9, 45, 51, 783, DateTimeKind.Local).AddTicks(4297),
+                            Concluida = false,
+                            CriadoEm = new DateTime(2025, 11, 28, 10, 47, 13, 878, DateTimeKind.Local).AddTicks(5069),
                             Status = "Não iniciada",
                             Titulo = "Passeio no parque"
                         });

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { errorMonitor } from "events";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Tarefa from "../../../models/Tarefa";
@@ -11,7 +10,7 @@ function AlterarTarefa(){
 
 useEffect(() => {
     buscarProdutosAPI()
- }, []);
+ }, [ ]);
 
  async function buscarProdutosAPI(){
     try {
@@ -25,10 +24,11 @@ useEffect(() => {
 async function submeterTarefaAPI(){
        try {
       const tarefa: Tarefa = {
-        titulo
+        titulo,
       };
       const resposta = await axios.patch(`http://localhost:5000/api/tarefa/alterar/${id}`, tarefa);            
     //   navigate("/")
+    console.log(resposta);
     } catch (error : any) {
       if(error.status === 409){
         console.log("Esse tarefa já foi cadastrado!");

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Produto from "../../../models/Tarefa";
 import axios from "axios";
 import Tarefa from "../../../models/Tarefa";
 

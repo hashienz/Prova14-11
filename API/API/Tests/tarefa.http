@@ -8,3 +8,10 @@ Content-Type: application/json
 {
     "titulo": "Estudar Node.js"
 }
+
+### Tarefas Concluidas
+GET http://localhost:5000/tarefas/concluidas
+
+
+### Tarefas Nao concluidas
+GET http://localhost:5000/tarefas/naoconcluidas
