@@ -11,7 +11,28 @@ Content-Type: application/json
 
 ### Tarefas Concluidas
 GET http://localhost:5000/tarefas/concluidas
+Content-Type: application/json
 
-
+{
+    "id": 4,
+    "titulo": "Enviar relatório final",
+    "status": "Concluída"
+}
+  
 ### Tarefas Nao concluidas
 GET http://localhost:5000/tarefas/naoconcluidas
+Content-Type: application/json
+
+{
+    "id": 1,
+    "titulo": "Organizar documentos",
+    "status": "Não iniciada"
+  },
+  {
+    "id": 3,
+    "titulo": "Atualizar projeto",
+    "status": "Em andamento"
+  }
+
+###Alterar tarefa
+PUT http://localhost:5000/tarefas/alterar/

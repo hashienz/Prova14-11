@@ -6,9 +6,6 @@ import Tarefa from "../../../models/Tarefa";
 
 function CadastrarTarefa(){
     const[titulo, setTitulo] = useState ("");
-    // const[descricao, setDescricao] = useState ("");
-    // const [quantidade, setQuantidade] = useState(0);
-    // const [preco, setPreco] = useState(0);
      function enviarProduto(event: any) {
     event.preventDefault();
     submeterProdutoAPI();
@@ -18,7 +15,7 @@ function CadastrarTarefa(){
     //Biblioteca AXIOS
     try {
       const tarefa: Tarefa = {
-        titulo //descricao, preco, quantidade,
+        titulo
       };
       const resposta = await axios.post("http://localhost:5000/api/tarefas/cadastrar", tarefa);            
       console.log(await resposta.data);

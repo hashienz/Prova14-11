@@ -26,15 +26,14 @@ function ListarTarefa() {
 
   async function concluirTarefa(id : string){    
     try {
-      // const resposta = await axios.delete(`http://localhost:5011/api/produto/remover/${id}`);
-
+      const resposta = await axios.get(`http://localhost:5000/tarefas/concluidas/${id}`);
       buscarTarefasAPI();
     } catch (error) {
       console.log("Erro ao concluir a tarefa: " + error);
     }
   }
 
-  //O return é a parte visual do componente
+  
   return (
     <div id="listar_tarefas">
       <h1>Listar Tarefas</h1>
@@ -43,9 +42,6 @@ function ListarTarefa() {
           <tr>
             <th>#</th>
             <th>Titulo</th>
-            {/* <th>Descrição</th>
-            <th>Quantidade</th>
-            <th>Preço</th> */}
             <th>Criado Em</th>
             <th>Concluir</th>
           </tr>
@@ -55,9 +51,6 @@ function ListarTarefa() {
             <tr key={tarefa.id}>
               <td>{tarefa.id}</td>
               <td>{tarefa.titulo}</td>
-              {/* <td>{produto.descricao}</td>
-              <td>{produto.quantidade}</td>
-              <td>{produto.preco}</td> */}
               <td>{tarefa.criadoEm}</td>
               <td>
                 <button onClick={() => concluirTarefa(tarefa.id!)}>Concluir</button>

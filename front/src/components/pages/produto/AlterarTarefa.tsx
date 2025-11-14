@@ -9,13 +9,13 @@ function AlterarTarefa(){
     const [titulo, setTitulo] = useState("");
 
 useEffect(() => {
-    buscarProdutosAPI()
- }, [ ]);
+    buscarTarefaAPI()
+ }, []);
 
- async function buscarProdutosAPI(){
+ async function buscarTarefaAPI(){
     try {
-        const resposta = await axios.get(`/api/tarefas/alterar/${id}`);
-        setTitulo(resposta.data.nome);
+        const resposta = await axios.patch(`/api/tarefas/alterar/${id}`);
+        setTitulo(resposta.data.titulo);
     } catch (error) {
         console.log("Erro ao buscar tarefa: " + error)
         
@@ -24,10 +24,10 @@ useEffect(() => {
 async function submeterTarefaAPI(){
        try {
       const tarefa: Tarefa = {
-        titulo,
+        titulo
       };
       const resposta = await axios.patch(`http://localhost:5000/api/tarefa/alterar/${id}`, tarefa);            
-    //   navigate("/")
+    //    navigate("/")
     console.log(resposta);
     } catch (error : any) {
       if(error.status === 409){
@@ -46,7 +46,7 @@ async function submeterTarefaAPI(){
       <h1>Alterar Tarefa</h1>
       <form onSubmit={enviarTarefa}>
         <div>
-          <label>Nome:</label>
+          <label>Titulo:</label>
           <input type="text"
            value={titulo} onChange={(e: any) => setTitulo(e.target.value)} />
         </div>

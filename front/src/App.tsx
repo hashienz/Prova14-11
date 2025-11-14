@@ -25,7 +25,7 @@ function App() {
               <Link to="/tarefa/cadastrar"> Cadastrar Tarefas </Link>
             </li>
             <li>
-               <Link to="/tarefa/alterar"> Alterar Tarefas </Link>
+               <Link to="/tarefa/alterar/:id"> Alterar Tarefas </Link>
             </li>
             <li>
               <Link to="/tarefa/concluidas"> Tarefas Concluidas </Link>
@@ -39,7 +39,7 @@ function App() {
           <Route path="/" element={<ListarTarefa/>} />
           <Route path="/tarefa/cadastrar" element={<CadastrarTarefa/>} />
           <Route path="/tarefa/listar" element={<ListarTarefa/>} />
-          <Route path="/tarefa/alterar" element={<AlterarTarefa/>} />
+          <Route path="/tarefa/alterar/:id" element={<AlterarTarefa/>} />
           <Route path="/tarefa/concluidas" element={<TarefasConcluidas/>} />
           <Route path="/tarefa/naoconcluidas" element={<TarefasNaoConcluidas/>} />
         </Routes>
