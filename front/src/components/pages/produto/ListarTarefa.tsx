@@ -25,13 +25,13 @@ function ListarTarefa() {
     }
   }
 
-  async function deletarTarefa(id : string){    
+  async function concluirTarefa(id : string){    
     try {
       // const resposta = await axios.delete(`http://localhost:5011/api/produto/remover/${id}`);
 
       buscarTarefasAPI();
     } catch (error) {
-      console.log("Erro ao deletar a tarefa: " + error);
+      console.log("Erro ao concluir a tarefa: " + error);
     }
   }
 
@@ -48,7 +48,7 @@ function ListarTarefa() {
             <th>Quantidade</th>
             <th>Preço</th> */}
             <th>Criado Em</th>
-            <th>Deletar</th>
+            <th>Concluir</th>
           </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@ function ListarTarefa() {
               <td>{produto.preco}</td> */}
               <td>{tarefa.criadoEm}</td>
               <td>
-                <button onClick={() => deletarTarefa(tarefa.id!)}>Deletar</button>
+                <button onClick={() => concluirTarefa(tarefa.id!)}>Concluir</button>
               </td>
             </tr>
           ))}
