@@ -5,9 +5,18 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDataContext>();
 
+
+builder.Services.AddCors(options =>
+    options.AddPolicy("Acesso Total",
+        configs => configs
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod())
+);
+
 var app = builder.Build();
 
-app.MapGet("/", () => "COLOQUE O SEU NOME");
+app.MapGet("/", () => "Enzo Ricardo Hashimoto");
 
 //ENDPOINTS DE TAREFA
 //GET: http://localhost:5273/api/tarefas/listar
@@ -45,5 +54,8 @@ app.MapGet("/api/tarefas/concluidas", ([FromServices] AppDataContext ctx) =>
 {
     //Implementar a listagem de tarefas concluídas
 });
+
+app.UseCors("Acesso Total");
+
 
 app.Run();

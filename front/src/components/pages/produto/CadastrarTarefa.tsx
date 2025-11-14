@@ -1,14 +1,14 @@
 import { useState } from "react";
 import axios from "axios";
-import Produto from "../../../models/Produto";
+import Tarefa from "../../../models/Tarefa";
 
 
 
-function CadastrarProduto(){
-    const[nome, setNome] = useState ("");
-    const[descricao, setDescricao] = useState ("");
-    const [quantidade, setQuantidade] = useState(0);
-    const [preco, setPreco] = useState(0);
+function CadastrarTarefa(){
+    const[titulo, setTitulo] = useState ("");
+    // const[descricao, setDescricao] = useState ("");
+    // const [quantidade, setQuantidade] = useState(0);
+    // const [preco, setPreco] = useState(0);
      function enviarProduto(event: any) {
     event.preventDefault();
     submeterProdutoAPI();
@@ -17,44 +17,44 @@ function CadastrarProduto(){
   async function submeterProdutoAPI() {
     //Biblioteca AXIOS
     try {
-      const produto: Produto = {
-        nome, descricao, preco, quantidade,
+      const tarefa: Tarefa = {
+        titulo //descricao, preco, quantidade,
       };
-      const resposta = await axios.post("http://localhost:5011/api/produto/cadastrar", produto);            
+      const resposta = await axios.post("http://localhost:5000/api/tarefas/cadastrar", tarefa);            
       console.log(await resposta.data);
     } catch (error : any) {
       if(error.status === 409){
-        console.log("Esse produto já foi cadastrado!");
+        console.log("Esse tarefa já foi cadastrado!");
       }
     }
   }
 
   return (
     <div>
-      <h1>Cadastrar Produto</h1>
+      <h1>Cadastrar Tarefa</h1>
       <form onSubmit={enviarProduto}>
         <div>
           <label>Nome:</label>
-          <input onChange={(e : any) => setNome(e.target.value)} type="text" />
+          <input onChange={(e : any) => setTitulo(e.target.value)} type="text" />
         </div>
-        <div>
+        {/* <div>
           <label>Descrição:</label>
           <input
             type="text"
             onChange={(e: any) => setDescricao(e.target.value)}
           />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <label>Quantidade:</label>
           <input
             type="text"
             onChange={(e: any) => setQuantidade(e.target.value)}
           />
-        </div>
-        <div>
+        </div> */}
+        {/* <div>
           <label>Preço:</label>
           <input type="text" onChange={(e: any) => setPreco(e.target.value)} />
-        </div>
+        </div> */}
         <div>
           <button type="submit">Cadastrar</button>
         </div>
@@ -63,4 +63,4 @@ function CadastrarProduto(){
   );
 }
 
-export default CadastrarProduto;
+export default CadastrarTarefa;

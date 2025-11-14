@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
-import ListarProdutos from "./components/pages/produto/ListarProdutos";
-import CadastrarProduto from "./components/pages/produto/CadastrarProduto";
+import CadastrarTarefa from "./components/pages/produto/CadastrarTarefa";
+import ListarTarefa from "./components/pages/produto/ListarTarefa";
 
 //Instalar biblioteca na aplicação
 //npm i nome_biblioteca @types/nome_biblioteca
@@ -15,16 +15,16 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Listar Produtos</Link>
+              <Link to="/">Listar Tarefas</Link>
             </li>
             <li>
-              <Link to="/produto/cadastrar"> Cadastrar Produtos </Link>
+              <Link to="/tarefa/cadastrar"> Cadastrar Tarefas </Link>
             </li>
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<ListarProdutos/>} />
-          <Route path="/produto/cadastrar" element={<CadastrarProduto/>} />
+          <Route path="/" element={<ListarTarefa/>} />
+          <Route path="/tarefa/cadastrar" element={<CadastrarTarefa/>} />
         </Routes>
         <footer>
           Rodapé da aplicação
